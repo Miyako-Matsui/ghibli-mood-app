@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import './index.css' 
+import './index.css'
+import 'tailwindcss'
 
 function GhibliApp() {
     const [films, setFilms] = useState([])
@@ -19,7 +20,7 @@ function GhibliApp() {
 
     return (
         <div style={{ textAlign: 'center', padding: '2rem' }}>
-            <h1 class="text-red-600 ">ジブリ気分チェッカー</h1>
+            <h1 class="text-green-600 ">ジブリ気分チェッカー</h1>
             <button onClick={showRandomFilm}>今日の気分は？</button>
 
             {selectedFilm && (
