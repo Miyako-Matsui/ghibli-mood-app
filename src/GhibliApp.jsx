@@ -18,17 +18,35 @@ function GhibliApp() {
         setSelectedFilm(films[randomIndex])
     }
 
+    // Enterキーのリスナーを追加（全体に）
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Enter') {
+                showRandomFilm()
+            }
+        }
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [films])
+
     return (
         <div style={{ textAlign: 'center', padding: '2rem' }}>
-            <h1 class="text-green-600 ">ジブリ気分チェッカー</h1>
+            <h1 className="text-green-600 text-2xl font-bold mb-4">
+                ジブリ気分チェッカー
+            </h1>
+
             <button onClick={showRandomFilm}>今日の気分は？</button>
+
+            <p className="mt-2 text-sm text-gray-600">
+                クリックまたはEnterキーでどんな映画がおすすめされるか見てみよう！
+            </p>
 
             {selectedFilm && (
                 <div style={{ marginTop: 20 }}>
-                    <h2>
+                    <h2 className="text-xl font-semibold">
                         {selectedFilm.title} ({selectedFilm.release_date})
                     </h2>
-                    <p>{selectedFilm.description}</p>
+                    <p className="mt-2">{selectedFilm.description}</p>
                 </div>
             )}
         </div>
