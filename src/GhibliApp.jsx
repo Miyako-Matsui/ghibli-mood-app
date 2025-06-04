@@ -38,7 +38,9 @@ function GhibliApp() {
             <button onClick={showRandomFilm}>今日の気分は？</button>
 
             <p className="mt-2 text-sm text-gray-600">
-                クリックまたはEnterキーでどんな映画がおすすめされるか見てみよう！
+                <span className="font-extrabold">上をクリック</span>
+                または<span className="font-extrabold">Enterキー</span>
+                でどんな映画がおすすめされるか見てみよう！
             </p>
 
             {selectedFilm && (
