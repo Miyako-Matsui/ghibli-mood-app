@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
 import 'tailwindcss'
+import ThemeToggler from './components/ThemeToggler'
 
 function GhibliApp() {
     const [films, setFilms] = useState([])
     const [selectedFilm, setSelectedFilm] = useState(null)
+    const [theme, setTheme] = useState('light')
 
     useEffect(() => {
         fetch('https://ghibliapi.vercel.app/films') // ✅ 正しいエンドポイント
@@ -30,7 +32,15 @@ function GhibliApp() {
     }, [films])
 
     return (
-        <div style={{ textAlign: 'center', padding: '2rem' }}>
+        <div
+            className={`${
+                theme === 'light'
+                    ? 'bg-white text-black'
+                    : 'bg-black text-white'
+            } h-screen text-center p-8`}
+        >
+            <ThemeToggler onThemeChange={setTheme} />
+
             <h1 className="text-green-600 text-2xl font-bold mb-4">
                 ジブリ気分チェッカー
             </h1>
@@ -41,6 +51,7 @@ function GhibliApp() {
                 <span className="font-extrabold">上をクリック</span>
                 または<span className="font-extrabold">Enterキー</span>
                 でどんな映画がおすすめされるか見てみよう！
+                <span className="font-extrabold">Tキー</span> でテーマ切り替え
             </p>
 
             {selectedFilm && (
