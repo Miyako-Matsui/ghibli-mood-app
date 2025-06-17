@@ -37,7 +37,7 @@ function GhibliApp() {
                 theme === 'light'
                     ? 'bg-white text-black'
                     : 'bg-black text-white'
-            } h-screen text-center p-8`}
+            } h-screen text-center w-screen`}
         >
             <ThemeToggler onThemeChange={setTheme} />
 
