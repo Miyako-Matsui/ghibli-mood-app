@@ -37,23 +37,26 @@ function GhibliApp() {
                 theme === 'light'
                     ? 'bg-white text-black'
                     : 'bg-black text-white'
-            } h-screen text-center w-screen`}
+            } h-screen text-center w-screen md:pt-20 pt-10 px-5`}
         >
             <ThemeToggler onThemeChange={setTheme} />
-
-            <h1 className="text-green-600 text-2xl font-bold mb-4">
+            <h1 className="text-lime-500 text-2xl font-bold mb-4">
                 ジブリ気分チェッカー
             </h1>
-
-            <button onClick={showRandomFilm}>今日の気分は？</button>
-
-            <p className="mt-2 text-sm text-gray-600">
-                <span className="font-extrabold">上をクリック</span>
-                または<span className="font-extrabold">Enterキー</span>
-                でどんな映画がおすすめされるか見てみよう！
-                <span className="font-extrabold">Tキー</span> でテーマ切り替え
-            </p>
-
+            <button onClick={showRandomFilm} className="text-gray-600">
+                今日の気分は？
+            </button>
+            <div className="mt-2 text-sm">
+                <p>
+                    <span className="font-extrabold">上をクリック</span>
+                    または<span className="font-extrabold">Enterキー</span>
+                    でどんな映画がおすすめされるか見てみよう！
+                </p>
+                <p>
+                    <span className="font-extrabold">Tキー</span>{' '}
+                    でブラックモード、ライトモードに切り替え
+                </p>
+            </div>
             {selectedFilm && (
                 <div style={{ marginTop: 20 }}>
                     <h2 className="text-xl font-semibold">
